@@ -1,3 +1,19 @@
+<script>
+  import { quoteStore } from "../stores";
+  import { activeStore } from "../stores";
 
+  $: bodyTitle = $quoteStore[$activeStore - 1].title;
+</script>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, eaque. Voluptatem corrupti, dolorem dolorum dolor provident nobis omnis qui maiores mollitia velit, sit laudantium? Beatae vel quaerat dicta perferendis incidunt, quibusdam animi officiis ratione placeat! Voluptate nobis consectetur quasi aliquid, quas nulla tempore. Facere laborum dicta veniam officiis, dolor at.</p>
+<h2>This is {bodyTitle}</h2>
+<p>{bodyTitle} says: Lorem ipsum dolor sit amet consectetur adiplit, sit laudantium? Beatae vel incidunt, quibus at.</p>
+
+<style>
+  h2 {
+    padding: 14px;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+</style>
