@@ -9,6 +9,8 @@
   }
 
   footer {
+    padding: 3px;
+    background-color: var(--my-dark-gray);
     margin-top: auto;
   }
 </style>

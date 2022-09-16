@@ -3,15 +3,15 @@ import { writable } from "svelte/store";
 export const quoteStore = writable([
   {
     id: 1,
-    title: 'tab 1',
+    title: 'Tab 1',
   },
   {
     id: 2,
-    title: 'tab 2',
+    title: 'Tab 2',
   },
   {
     id: 3,
-    title: 'tab 3',
+    title: 'Tab 3',
   },
 ]);
 

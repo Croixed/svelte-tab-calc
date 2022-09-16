@@ -5,15 +5,29 @@
   $: bodyTitle = $quoteStore[$activeStore - 1].title;
 </script>
 
-<h2>This is {bodyTitle}</h2>
-<p>{bodyTitle} says: Lorem ipsum dolor sit amet consectetur adiplit, sit laudantium? Beatae vel incidunt, quibus at.</p>
+<div class="body-container">
+  <h2>This is {bodyTitle}</h2>
+  <p>{bodyTitle} says: Lorem ipsum dolor sit amet consectetur adiplit, sit laudantium? Beatae vel incidunt, quibus at.</p>
+</div>
 
 <style>
-  h2 {
-    padding: 14px;
+  p {
+    font-size: 1.4em;
   }
 
-  p {
-    font-size: 1.5em;
+  .body-container {
+    background-color: rgba(var(--primary), 0.24);
+    /* background-color: #02406d88; */
+    box-shadow: #0005 0 5px 16px;
+
+    max-width: 900px;
+    margin: 24px;
+    padding: 20px;
+    border-radius: 12px;
+
+    border-left: 12px solid rgb(var(--primary));
+
+    flex-grow: 1;
+    align-self: center;
   }
 </style>

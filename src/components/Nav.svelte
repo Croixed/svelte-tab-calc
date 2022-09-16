@@ -14,7 +14,7 @@
   // I feel like this should be in a seperate file like storesLogic.js?
   const quoteFactory = () => {
     const newQuote = {
-      title: `tab ${$currentIdStore}`,
+      title: `Tab ${$currentIdStore}`,
       id: $currentIdStore++,
     }
     return newQuote;
@@ -27,16 +27,27 @@
   {#each $quoteStore as quote (quote.id)}
     <Tab {quote} />
   {/each}
-  <button on:click={handleNewTabClick}>new tab</button>
+  <button on:click={handleNewTabClick}>+</button>
 </nav>
 
 
 <style>
   nav {
-    height: 50px;
-    background-color: #02406d;
+    height: 56px;
+    box-shadow: inset  0 10px 12px -10px #0008;
+    background-color: var(--my-dark-gray);
 
     display: flex;
     align-items: flex-end;
+  }
+
+  button {
+    height: 84%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.1em;
+    font-weight: bold;
+    padding: 0px 6px;
   }
 </style>

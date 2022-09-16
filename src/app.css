@@ -6,13 +6,17 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--my-gray);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --primary: 4, 120, 87; /* 3, 124, 231 - See3D blue */
+  --my-dark-gray: #242424;
+  --my-gray: #393939;
 }
 
 * {
