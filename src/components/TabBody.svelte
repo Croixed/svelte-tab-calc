@@ -10,9 +10,9 @@
   <h2>This is {bodyTitle}</h2>
   <p>{bodyTitle} says: Lorem ipsum dolor sit amet consectetur adiplit, sit laudantium? Beatae vel incidunt, quibus at.</p>
   <!-- I'll fix this later with a loop -->
-  <TypeButton imageUrl={'/assets/unsplash-royalty-free-printer-1.jpg'} />
-  <TypeButton imageUrl={'/assets/pixabay-royalty-free-printer-1.jpg'} />
-  <TypeButton imageUrl={'/assets/pixabay-royalty-free-printer-2.jpg'} />
+  <TypeButton imageUrl={'./assets/unsplash-royalty-free-printer-1.jpg'} />
+  <TypeButton imageUrl={'./assets/pixabay-royalty-free-printer-1.jpg'} />
+  <TypeButton imageUrl={'./assets/pixabay-royalty-free-printer-2.jpg'} />
 </div>
 
 <style>
@@ -34,5 +34,10 @@
 
     flex-grow: 1;
     align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
   }
 </style>
