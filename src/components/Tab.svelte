@@ -27,7 +27,7 @@
     position: relative;
   } 
 
-  /* I didn't write the CSS here */
+  /* I didn't write the CSS below here */
   .active:before,
   .active:after {
     content: "";
@@ -52,7 +52,4 @@
     border-radius: 0 0 10px 0;
     box-shadow: 10px 0 0 0 var(--my-gray);
   }
-
-  
-    
 </style>
