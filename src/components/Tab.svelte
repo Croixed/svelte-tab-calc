@@ -1,17 +1,22 @@
 <script>
-  export let item;
-  // item is a generic name, I might want to use quote instead?
+  export let quote;
+  import { activeStore } from "../stores";
 
-  const setActive = (itemId) => {
+  const setActive = (quoteId) => {
     // find element in array with matching store
     // then set its active prop to true - this needs to trigger a rerender
-    console.log(itemId)
+    console.log(quoteId)
+  }
+
+  const handleTabClick = () => {
+    $activeStore = quote.id;
   }
 </script>
 
 
-<button on:click={() => setActive(item.id)}>
-  {item.title}
+<!-- <button on:click={() => setActive(quote.id)}> -->
+<button on:click={handleTabClick}>
+  {quote.title}
 </button>
 
 <style>
