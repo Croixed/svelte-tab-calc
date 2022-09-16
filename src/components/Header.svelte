@@ -2,10 +2,6 @@
 
 </script>
 
-
-
-
-
 <header>
   <img src="./assets/ACubedLogo.png" alt="">
   <h1>Tabbed Calc</h1>
