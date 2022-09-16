@@ -8,8 +8,10 @@
     quoteStore.update((current) => {
       return [...current, quoteFactory()]
     })
+    activeStore.set($quoteStore.at(-1).id)
   }
 
+  // I feel like this should be in a seperate file like storesLogic.js?
   const quoteFactory = () => {
     const newQuote = {
       title: `tab ${$currentIdStore}`,
@@ -19,7 +21,6 @@
   }
 
   $: console.log('the active tab is: ' + $activeStore)
-
 </script>
 
 <nav>

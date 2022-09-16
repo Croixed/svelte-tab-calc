@@ -16,7 +16,7 @@ export const quoteStore = writable([
 ]);
 
 // placeholder, might move active variable to App or Nav?
-export const activeStore = writable(4)
+export const activeStore = writable(3)
 
 // placeholder, I'll probably use UUIDv4 to generate unique IDs later
 export const currentIdStore = writable(4)
