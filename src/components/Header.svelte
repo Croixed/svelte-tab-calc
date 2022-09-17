@@ -32,18 +32,17 @@
 
   .accent-block {
     position: absolute;
-    height: 250%;
+    height: 330%;
     width: 30%;
     background-color: #056C4F;
     right: -10px;
 
-    
     transform: rotate(17deg);
   }
 
   .accent-block-2 {
     position: absolute;
-    height: 220%;
+    height: 250%;
     width: 15%;
     background-color: #065f46;
     margin-left: auto;

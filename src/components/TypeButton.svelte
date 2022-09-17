@@ -1,9 +1,18 @@
 <script>
-  export let imageUrl;
+  import { quoteStore } from "../stores";
+  import { activeStore } from "../stores";
+
+  export let type;
+
+  const handleTypeClick = () => {
+    // there has to be a better way to do this
+    let activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+    $quoteStore[activeIndex].type = type.name;
+  };
 </script>
 
-<button style="background-image: url({imageUrl})">
-  type button
+<button on:click={handleTypeClick} style="background-image: url({type.imgUrl})">
+  {type.name}
 </button>
 
 <style>
@@ -16,7 +25,7 @@
     background-blend-mode: darken;
 
     width: 55%;
-    height: 17vh;
+    height: 145px;
     
     border: none;
     border-radius: 8px;

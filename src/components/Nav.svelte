@@ -16,6 +16,9 @@
     const newQuote = {
       title: `Tab ${$currentIdStore}`,
       id: $currentIdStore++,
+      type: null,
+      numOne: 0,
+      numTwo: 0,
     }
     return newQuote;
   }
