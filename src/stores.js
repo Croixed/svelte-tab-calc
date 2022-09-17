@@ -19,7 +19,7 @@ export const quoteStore = writable([
     id: 3,
     title: 'Tab 3',
     type: null,
-    numOne: 0,
+    numOne: 3,
     numTwo: 0,
   },
 ]);

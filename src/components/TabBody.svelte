@@ -4,17 +4,23 @@
   import Calc from "./Calc.svelte";
   import SelectType from "./SelectType.svelte";
 
+  $: activeQuote = $quoteStore.find(quote => quote.id === $activeStore);
+  $: bodyTitle = activeQuote.title;
 
-  $: bodyTitle = $quoteStore[$activeStore - 1].title;
+  const handleDelete = () => {
+    $quoteStore = $quoteStore.filter((quote) => quote.id !== $activeStore);
+    activeStore.set($quoteStore[0].id);
+  }
 </script>
 
 <div class="body-container">
   <h2>This is {bodyTitle}</h2>
   <p>{bodyTitle} says: Lorem ipsum dolor</p>
-  {#if $quoteStore[$activeStore - 1].type === null}
+  <button id="delete" on:click={handleDelete}>delete</button>
+  {#if !activeQuote.type}
     <SelectType />
   {:else}
-    <p>the type is { $quoteStore[$activeStore - 1].type }</p>
+    <p>the type is { activeQuote.type }</p>
     <Calc />
   {/if}
 </div>
@@ -25,6 +31,7 @@
   }
 
   .body-container {
+    position: relative;
     background-color: rgba(var(--primary), 0.24);
     /* background-color: #02406d88; */
     box-shadow: #0005 0 5px 16px;
@@ -41,5 +48,16 @@
 
     display: flex;
     flex-direction: column;
+  }
+
+  #delete {
+    position: absolute;
+    right: 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.2em;
   }
 </style>
