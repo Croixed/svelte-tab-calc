@@ -3,6 +3,7 @@
   import { activeStore } from "../stores";
   import Calc from "./Calc.svelte";
   import SelectType from "./SelectType.svelte";
+  import Summary from "./Summary.svelte";
 
   $: activeQuote = $quoteStore.find(quote => quote.id === $activeStore);
   // $: bodyTitle = activeQuote.title;
@@ -17,7 +18,7 @@
 <!-- this is a bit messy, I can probably abstract/clean it up -->
 <div class="body-container">
   {#if $activeStore === -1}
-    <h1>summary</h1>
+    <Summary />
   {:else}
     <h2>This is {bodyTitle}</h2>
     <p>{bodyTitle} says: Lorem ipsum dolor</p>
