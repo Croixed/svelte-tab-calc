@@ -5,7 +5,8 @@
   import SelectType from "./SelectType.svelte";
 
   $: activeQuote = $quoteStore.find(quote => quote.id === $activeStore);
-  $: bodyTitle = activeQuote.title;
+  // $: bodyTitle = activeQuote.title;
+  $: bodyTitle = $activeStore != -1 ? activeQuote.title : "Summary";
 
   const handleDelete = () => {
     $quoteStore = $quoteStore.filter((quote) => quote.id !== $activeStore);
@@ -13,15 +14,20 @@
   }
 </script>
 
+<!-- this is a bit messy, I can probably abstract/clean it up -->
 <div class="body-container">
-  <h2>This is {bodyTitle}</h2>
-  <p>{bodyTitle} says: Lorem ipsum dolor</p>
-  <button id="delete" on:click={handleDelete}>delete</button>
-  {#if !activeQuote.type}
-    <SelectType />
+  {#if $activeStore === -1}
+    <h1>summary</h1>
   {:else}
-    <p>the type is { activeQuote.type }</p>
-    <Calc />
+    <h2>This is {bodyTitle}</h2>
+    <p>{bodyTitle} says: Lorem ipsum dolor</p>
+    <button id="delete" on:click={handleDelete}>delete</button>
+    {#if !activeQuote.type}
+      <SelectType />
+    {:else}
+      <p>the type is { activeQuote.type }</p>
+      <Calc />
+    {/if}
   {/if}
 </div>
 

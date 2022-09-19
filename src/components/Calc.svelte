@@ -47,14 +47,8 @@
     padding-top: 24px;
   }
 
-  label {
-    font-size: 1.4em;
-  }
-
-  input {
-    font-size: 1.4em;
-  }
-
+  label,
+  input,
   p {
     font-size: 1.4em;
   }

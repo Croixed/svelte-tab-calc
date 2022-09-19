@@ -1,8 +1,10 @@
 <script>
+  import SummaryButton from "./SummaryButton.svelte";
 
 </script>
 
 <header>
+  <SummaryButton />
   <img src="./assets/ACubedLogo.png" alt="A Cubed Design Logo">
   <h1>Tabbed Calc</h1>
   <div class="accent-block" aria-hidden="true"></div>
@@ -50,4 +52,5 @@
 
     transform: rotate(17deg);
   }
+
 </style>
