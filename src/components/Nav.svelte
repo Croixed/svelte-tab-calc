@@ -19,6 +19,7 @@
       type: null,
       numOne: 0,
       numTwo: 0,
+      result: 0,
     }
     return newQuote;
   }

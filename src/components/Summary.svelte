@@ -1,15 +1,19 @@
 <script>
   import { quoteStore } from "../stores";
 
-  let total = $quoteStore.reduce((acc, quote) => {
-    return acc + quote.numOne + quote.numTwo;
-  }, 0);
+  let total = $quoteStore.reduce((acc, quote) => acc + quote.result, 0);
 
 </script>
 
 
 <div class="summary">
   <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="2">Inputs</th>
+      </tr>
+    </thead>
   {#each $quoteStore as quote}
     {#if quote.type}
     <!-- I'm not sure if a table is the best idea here-->
@@ -21,7 +25,7 @@
     {/if}
     {/each}
   </table>
-  <p class="total">Total: {total}</p>
+  <p class="total">Total: {Math.round(total * 100) / 100}</p>
   <button>Submit</button>
 </div>
 
@@ -72,9 +76,13 @@
     padding: 3px 10px;
   }
 
+  th {
+    min-width: 90px;
+  }
+
   td:first-child {
     background-color: #065f46;
-    min-width: 90px;
+    /* min-width: 90px; */
   }
 
   tr {

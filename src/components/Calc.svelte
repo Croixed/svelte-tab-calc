@@ -5,13 +5,18 @@
   $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
   $: type = $quoteStore[activeIndex].type;
 
+  // this is not DRY but it will be replaced later
   const calcResult = (numOne, numTwo, type) => {
     if (type === "Addition") {
-      return `${numOne} + ${numTwo} = ${numOne + numTwo}`;
+      $quoteStore[activeIndex].result = numOne + numTwo;
+      return `${numOne} + ${numTwo} = ${$quoteStore[activeIndex].result}`;
     }  else if (type === "Multiplication") {
-      return `${numOne} x ${numTwo} = ${numOne * numTwo}`;
-    } else if (type === "Division") {
-      return `${numOne} / ${numTwo} = ${numOne / numTwo}`;
+      $quoteStore[activeIndex].result = numOne * numTwo;
+      return `${numOne} x ${numTwo} = ${$quoteStore[activeIndex].result}`;
+    } else {
+      if (numTwo === 0) return "You can't divide by zero!"
+      $quoteStore[activeIndex].result = parseFloat((numOne / numTwo).toFixed(2));
+      return `${numOne} / ${numTwo} = ${$quoteStore[activeIndex].result}`;
     }
   };
 
@@ -24,6 +29,7 @@
 </script>
 
 <div class="calc-container">
+  <!-- I can probably abstract this into a component and then use it twice -->
   <label for="num-one">Operand One: </label>
   <input type="number" name="num-one" id="num-one" bind:value={$quoteStore[activeIndex].numOne}>
 

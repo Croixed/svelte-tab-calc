@@ -7,6 +7,7 @@ export const quoteStore = writable([
     type: null,
     numOne: 0,
     numTwo: 0,
+    result: 0,
   },
   {
     id: 2,
@@ -14,13 +15,15 @@ export const quoteStore = writable([
     type: null,
     numOne: 0,
     numTwo: 0,
+    result: 0,
   },
   {
     id: 3,
     title: 'Tab 3',
     type: null,
-    numOne: 3,
+    numOne: 0,
     numTwo: 0,
+    result: 0,
   },
 ]);
 
