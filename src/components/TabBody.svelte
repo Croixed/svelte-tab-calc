@@ -1,7 +1,7 @@
 <script>
   import { quoteStore } from "../stores";
   import { activeStore } from "../stores";
-  import Calc from "./Calc.svelte";
+  import Input from "./Input.svelte";
   import SelectType from "./SelectType.svelte";
   import Summary from "./Summary.svelte";
 
@@ -21,13 +21,13 @@
     <Summary />
   {:else}
     <h2>This is {bodyTitle}</h2>
-    <p>{bodyTitle} says: Lorem ipsum dolor</p>
+    <!-- <p>{bodyTitle} says: Lorem ipsum dolor</p> -->
     <button id="delete" on:click={handleDelete}>delete</button>
     {#if !activeQuote.type}
       <SelectType />
     {:else}
       <p>the type is { activeQuote.type }</p>
-      <Calc />
+      <Input />
     {/if}
   {/if}
 </div>

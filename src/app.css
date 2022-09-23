@@ -15,8 +15,8 @@
   -webkit-text-size-adjust: 100%;
 
   --primary: 115, 0, 153; /* old emerald green: 4, 120, 87, HSL 285 100 30 */
-  --my-dark-gray: #242424;
-  --my-gray: #393939;
+  --my-dark-gray: #222222;
+  --my-gray: #343434;
 }
 
 * {
