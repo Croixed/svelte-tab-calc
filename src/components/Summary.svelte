@@ -1,7 +1,7 @@
 <script>
   import { quoteStore } from "../stores";
 
-  let total = $quoteStore.reduce((acc, quote) => acc + quote.result, 0);
+  let total = $quoteStore.reduce((acc, quote) => acc + quote.quantity, 0);
 
 </script>
 
@@ -11,7 +11,9 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th colspan="2">Inputs</th>
+        <th >Type</th>
+        <th>Material</th>
+        <th>Quant.</th>
       </tr>
     </thead>
   {#each $quoteStore as quote}
@@ -19,19 +21,20 @@
     <!-- I'm not sure if a table is the best idea here-->
       <tr>
         <td>{quote.title}</td>
-        <td>{quote.numOne}</td>
-        <td>{quote.numTwo}</td>
+        <td>{quote.type}</td>
+        <td>{quote.material}</td>
+        <td>{quote.quantity}</td>
       </tr>
     {/if}
     {/each}
   </table>
-  <p class="total">Total: {Math.round(total * 100) / 100}</p>
+  <p class="total">Total: {Math.round(total * 100) / 100} models</p>
   <button>Submit</button>
 </div>
 
 <style>
   .summary {
-    width: 400px;
+    width: 440px;
     padding: 12px;
     background-color: rgb(var(--primary));
     margin: 0 auto;
@@ -57,7 +60,7 @@
     padding: 8px;
     border-radius: 8px;
     border: 0px;
-    background-color: rgb(64, 103, 175);
+    background-color: rgb(46, 170, 93);
     color: white;
     font-size: 1.4em;
     transition: background-color 0.5s, color 0.6s;
@@ -77,7 +80,7 @@
   }
 
   th {
-    min-width: 90px;
+    min-width: 96px;
   }
 
   td:first-child {

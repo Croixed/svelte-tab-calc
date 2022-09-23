@@ -2,9 +2,9 @@
   import TypeButton from './TypeButton.svelte';
 
   const types = [
-    { name: 'Addition', imgUrl: './assets/unsplash-royalty-free-printer-1.jpg' },
-    { name: 'Multiplication', imgUrl: './assets/pixabay-royalty-free-printer-1.jpg' },
-    { name: 'Division', imgUrl: './assets/pixabay-royalty-free-printer-2.jpg' },
+    { name: 'FDM', imgUrl: './assets/unsplash-royalty-free-printer-1.jpg' },
+    { name: 'Resin', imgUrl: './assets/pixabay-royalty-free-printer-1.jpg' },
+    { name: 'Laser', imgUrl: './assets/pixabay-royalty-free-printer-2.jpg' },
   ];
 </script>
 

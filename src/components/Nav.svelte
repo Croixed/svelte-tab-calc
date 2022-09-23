@@ -17,9 +17,10 @@
       title: `Tab ${$currentIdStore}`,
       id: $currentIdStore++,
       type: null,
-      numOne: 0,
+      quantity: 0,
       numTwo: 0,
       result: 0,
+      material: '',
     }
     return newQuote;
   }

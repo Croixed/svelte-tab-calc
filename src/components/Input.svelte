@@ -11,29 +11,29 @@
   <!-- I can probably abstract this into a component and use it multiple times? -->
   <div class="inp">
     <label for="quantity">Quantity: </label>
-    <input type="number" name="quantity" id="quantity" bind:value={$quoteStore[activeIndex].quantity} />
+    <input type="number" name="quantity" id="quantity" bind:value={$quoteStore[activeIndex].quantity} min="0" max="999" />
   </div>
   
   <div class="upload-container">
     <label for="stl" id="stl-label">upload STL</label>
     <input type="file" name="stl" id="stl">
   </div>
-
-  <div class="material-container">
+  <form class="material-container" action="">
     <label for="material">Material:</label>
     <div class="material">
-      <input type="radio" name="material" id="pla" value="pla" bind:group={$quoteStore[activeIndex].material} />
-      <label for="pla">PLA</label>
+      <input type="radio" name="material" id="PLA" value="PLA" bind:group={$quoteStore[activeIndex].material} />
+      <label for="PLA">PLA</label>
     </div>
     <div class="material">
-      <input type="radio" name="material" id="petg" value="petg" bind:group={$quoteStore[activeIndex].material} />
-      <label for="petg">PETG</label>
+      <input type="radio" name="material" id="PETG" value="PETG" bind:group={$quoteStore[activeIndex].material} />
+      <label for="PETG">PETG</label>
     </div>
     <div class="material">
-      <input type="radio" name="material" id="abs" value="abs" bind:group={$quoteStore[activeIndex].material} />
-      <label for="abs">ABS</label>
+      <input type="radio" name="material" id="ABS" value="ABS" bind:group={$quoteStore[activeIndex].material} />
+      <label for="ABS">ABS</label>
     </div>
-  </div>
+  </form>
+  
 
   <div class="dimensions">
     <div class="dimension-inp">
@@ -104,7 +104,7 @@
   }
 
   #stl {
-    width: 300px;
+    width: 400px;
   }
 
   .material {
