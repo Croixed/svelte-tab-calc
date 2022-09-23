@@ -36,7 +36,7 @@
     position: absolute;
     height: 330%;
     width: 30%;
-    background-color: #056C4F;
+    background-color: hsl(285 100% 25%);
     right: -10px;
 
     transform: rotate(17deg);
@@ -46,7 +46,7 @@
     position: absolute;
     height: 250%;
     width: 15%;
-    background-color: #065f46;
+    background-color: hsl(285 100% 20%);
     margin-left: auto;
     right: -10px;
 

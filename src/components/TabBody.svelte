@@ -39,7 +39,7 @@
 
   .body-container {
     position: relative;
-    background-color: rgba(var(--primary), 0.24);
+    background-color: rgba(var(--primary), 0.1);
     /* background-color: #02406d88; */
     box-shadow: #0005 0 5px 16px;
 
@@ -60,7 +60,7 @@
   #delete {
     position: absolute;
     right: 20px;
-    background-color: #ff0000;
+    background-color: #d13535cb;
     color: white;
     border: none;
     border-radius: 8px;

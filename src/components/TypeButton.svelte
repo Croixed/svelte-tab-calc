@@ -33,7 +33,7 @@
     color: white;
     font-size: 32px;
 
-    border: 5px solid #059669;
+    border: 4px solid hsl(285 100% 36%);
 
     
   }

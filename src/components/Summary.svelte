@@ -81,16 +81,16 @@
   }
 
   td:first-child {
-    background-color: #065f46;
+    background-color: hsl(285 20% 50%);
     /* min-width: 90px; */
   }
 
   tr {
-    background-color: #059669;
+    background-color: hsl(285 30% 40%);
   }
 
   tr:nth-child(odd) {
-    background-color: #064e3b;
+    background-color: hsl(285 30% 50%);
     color: white;
   }
 </style>

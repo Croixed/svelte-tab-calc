@@ -14,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --primary: 4, 120, 87; /* 3, 124, 231 - See3D blue */
+  --primary: 115, 0, 153; /* old emerald green: 4, 120, 87, HSL 285 100 30 */
   --my-dark-gray: #242424;
   --my-gray: #393939;
 }
