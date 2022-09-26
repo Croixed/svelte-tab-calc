@@ -29,6 +29,8 @@
     {/each}
   </table>
   <p class="total">Total: {Math.round(total * 100) / 100} models</p>
+  <label for="email">Enter email to submit: </label>
+  <input type="email" name="email" id="email">
   <button>Submit</button>
 </div>
 
@@ -95,5 +97,13 @@
   tr:nth-child(odd) {
     background-color: hsl(285 30% 50%);
     color: white;
+  }
+
+  input {
+    color: white;
+    background-color: var(--my-gray);
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
   }
 </style>

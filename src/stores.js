@@ -2,28 +2,49 @@ import { writable } from "svelte/store";
 
 export const quoteStore = writable([
   {
-    id: 1,
     title: 'Tab 1',
+    id: 1,
+
     type: null,
-    quantity: 0,
-    numTwo: 0,
     material: '',
+
+    quantity: 0,
+    height: 0,
+    width: 0,
+    depth: 0,
+
+    desc: '',
+    req: '',
   },
   {
-    id: 2,
     title: 'Tab 2',
+    id: 2,
+
     type: null,
-    quantity: 0,
-    numTwo: 0,
     material: '',
+
+    quantity: 0,
+    height: 0,
+    width: 0,
+    depth: 0,
+
+    desc: '',
+    req: '',
   },
   {
-    id: 3,
     title: 'Tab 3',
+    id: 3,
+
     type: null,
-    quantity: 0,
-    numTwo: 0,
     material: '',
+
+    quantity: 0,
+    height: 0,
+    width: 0,
+    depth: 0,
+
+    desc: '',
+    req: '',
   },
 ]);
 

@@ -16,11 +16,17 @@
     const newQuote = {
       title: `Tab ${$currentIdStore}`,
       id: $currentIdStore++,
+
       type: null,
-      quantity: 0,
-      numTwo: 0,
-      result: 0,
       material: '',
+
+      quantity: 0,
+      height: 0,
+      width: 0,
+      depth: 0,
+
+      desc: '',
+      req: '',
     }
     return newQuote;
   }

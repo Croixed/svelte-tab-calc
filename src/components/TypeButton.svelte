@@ -33,8 +33,7 @@
     color: white;
     font-size: 32px;
 
-    border: 4px solid hsl(285 100% 36%);
-
+    border: 7px solid hsl(282 98% 29%);
     
   }
 </style>

@@ -37,28 +37,29 @@
 
   <div class="dimensions">
     <div class="dimension-inp">
+      <!-- these could probably also be moved to a child component -->
       <label for="dim-h">height (mm) </label>
-      <input type="number" name="dim-h" id="dim-h">
+      <input type="number" name="dim-h" id="dim-h" bind:value={$quoteStore[activeIndex].height} min="0" max="999" />
     </div>
   
     <div class="dimension-inp">
       <label for="dim-w">width (mm) </label>
-      <input type="number" name="dim-w" id="dim-w">
+      <input type="number" name="dim-w" id="dim-w" bind:value={$quoteStore[activeIndex].width} min="0" max="999" />
     </div>
   
     <div class="dimension-inp">
       <label for="dim-d">depth (mm) </label>
-      <input type="number" name="dim-d" id="dim-d">
+      <input type="number" name="dim-d" id="dim-d" bind:value={$quoteStore[activeIndex].depth} min="0" max="999" />
     </div>
   </div>
 
 
 
   <label for="req">requirements </label>
-  <textarea name="req" id="req" cols="40" rows="6" placeholder="Does the print need to be strong?"></textarea>
+  <textarea name="req" id="req" cols="40" rows="6" placeholder="Does the print need to be strong?" bind:value={$quoteStore[activeIndex].req}></textarea>
 
   <label for="desc">description </label>
-  <textarea name="desc" id="desc" cols="40" rows="6" placeholder="Tell us about the print"></textarea>
+  <textarea name="desc" id="desc" cols="40" rows="6" placeholder="Tell us about the print" bind:value={$quoteStore[activeIndex].desc}></textarea>
 </div>
 
 <style>
@@ -69,14 +70,14 @@
     border-radius: 10px;
     /* border: hsl(285 50% 46%) 2px solid; */
     border: none;
-    border: 2px solid #007299;
+    border: 4px solid hsl(282 98% 29%);;
     resize: none;
     padding: 0 4px;
   }
 
-  input[type=file] {
+  /* input[type=file] {
     border: none;
-  }
+  } */
 
   .inp-container {
     display: flex;

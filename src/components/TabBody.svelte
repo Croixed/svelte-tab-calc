@@ -33,6 +33,10 @@
 </div>
 
 <style>
+  h2 {
+    margin-bottom: 12px;
+  }
+
   p {
     font-size: 1.4em;
   }
