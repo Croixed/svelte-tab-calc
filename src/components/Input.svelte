@@ -66,9 +66,16 @@
   textarea {
     background-color: var(--my-gray);
     color: white;
-    border-radius: 5px;
-    border: hsl(285 40% 66%) 2px solid;
+    border-radius: 10px;
+    /* border: hsl(285 50% 46%) 2px solid; */
+    border: none;
+    border: 2px solid #007299;
     resize: none;
+    padding: 0 4px;
+  }
+
+  input[type=file] {
+    border: none;
   }
 
   .inp-container {
@@ -110,5 +117,9 @@
   .material {
     display: inline-block;
     padding: 0 12px;
+  }
+
+  textarea {
+    padding: 4px;
   }
 </style>

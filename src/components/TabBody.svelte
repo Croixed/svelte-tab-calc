@@ -39,8 +39,9 @@
 
   .body-container {
     position: relative;
-    background-color: rgba(var(--primary), 0.1);
-    /* background-color: #02406d88; */
+    /* background: linear-gradient(90deg, hsla(280 60% 24% / 0.35) 9%, hsla(280 70% 20% / 0.45) 90%); */
+    background: linear-gradient(108deg, hsla(282 98% 29% / 1) 45%, hsla(280 94% 30% / 0.1) 45%);
+    /* background-color:hsla(280 98% 30% / 0.2); */
     box-shadow: #0005 0 5px 16px;
 
     width: 900px;
@@ -48,7 +49,8 @@
     padding: 20px;
     border-radius: 12px;
 
-    border-left: 12px solid rgb(var(--primary));
+    /* border: 16px solid #730099; */
+    
 
     flex-grow: 1;
     align-self: center;

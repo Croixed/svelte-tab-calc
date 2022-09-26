@@ -13,7 +13,7 @@
 
 <style>
   header {
-    background-color: rgb(var(--primary)); 
+    background-color: hsl(282 98% 29%); 
     width: 100vw;
 
     display: flex;
@@ -36,7 +36,7 @@
     position: absolute;
     height: 330%;
     width: 30%;
-    background-color: hsl(285 100% 25%);
+    background-color: hsl(281 96% 25%);
     right: -10px;
 
     transform: rotate(17deg);
@@ -46,7 +46,7 @@
     position: absolute;
     height: 250%;
     width: 15%;
-    background-color: hsl(285 100% 20%);
+    background-color: hsl(281 94% 21%);
     margin-left: auto;
     right: -10px;
 
