@@ -4,15 +4,16 @@
   import Input from "./Input.svelte";
   import SelectType from "./SelectType.svelte";
   import Summary from "./Summary.svelte";
+  import TabTitle from "./TabTitle.svelte";
 
   $: activeQuote = $quoteStore.find(quote => quote.id === $activeStore);
-  // $: bodyTitle = activeQuote.title;
   $: bodyTitle = $activeStore != -1 ? activeQuote.title : "Summary";
 
   const handleDelete = () => {
     $quoteStore = $quoteStore.filter((quote) => quote.id !== $activeStore);
     activeStore.set($quoteStore[0].id);
   }
+
 </script>
 
 <!-- this is a bit messy, I can probably abstract/clean it up -->
@@ -20,8 +21,7 @@
   {#if $activeStore === -1}
     <Summary />
   {:else}
-    <h2>This is {bodyTitle}</h2>
-    <!-- <p>{bodyTitle} says: Lorem ipsum dolor</p> -->
+    <TabTitle />
     <button id="delete" on:click={handleDelete}>delete</button>
     {#if !activeQuote.type}
       <SelectType />
