@@ -6,12 +6,14 @@
   import Summary from "./Summary.svelte";
   import TabTitle from "./TabTitle.svelte";
 
-  $: activeQuote = $quoteStore.find(quote => quote.id === $activeStore);
-  $: bodyTitle = $activeStore != -1 ? activeQuote.title : "Summary";
+  $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+  $: activeQuote = $quoteStore[activeIndex];
 
   const handleDelete = () => {
-    $quoteStore = $quoteStore.filter((quote) => quote.id !== $activeStore);
-    activeStore.set($quoteStore[0].id);
+    if (confirm("Are you sure you want to delete this quote?")) {
+      $quoteStore = $quoteStore.filter(quote => quote.id !== $activeStore);
+      activeStore.set($quoteStore[0].id);
+    } 
   }
 
 </script>
@@ -26,19 +28,17 @@
     {#if !activeQuote.type}
       <SelectType />
     {:else}
-      <p>the type is { activeQuote.type }</p>
+      <p class="type">Type: { activeQuote.type }</p>
       <Input />
     {/if}
   {/if}
 </div>
 
 <style>
-  h2 {
-    margin-bottom: 12px;
-  }
 
-  p {
+  .type {
     font-size: 1.4em;
+    position: absolute;
   }
 
   .body-container {
@@ -52,8 +52,6 @@
     margin: 24px;
     padding: 20px;
     border-radius: 12px;
-
-    /* border: 16px solid #730099; */
     
 
     flex-grow: 1;
@@ -61,6 +59,8 @@
 
     display: flex;
     flex-direction: column;
+
+    min-height: 71vh;
   }
 
   #delete {

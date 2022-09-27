@@ -24,7 +24,7 @@
     border: 3px solid white;
     border-radius: 8px;
     font-size: 1.4em;
-    right: 20px;
+    right: 22px;
     padding: 8px;
     z-index: 2;
     transition: background-color 0.5s, color 0.6s;
