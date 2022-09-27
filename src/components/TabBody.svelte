@@ -10,16 +10,27 @@
   $: activeQuote = $quoteStore[activeIndex];
 
   const handleDelete = () => {
-    if (confirm("Are you sure you want to delete this quote?")) {
-      $quoteStore = $quoteStore.filter(quote => quote.id !== $activeStore);
-      activeStore.set($quoteStore[0].id);
-    } 
+    if (confirm("Are you sure you want to delete this tab?")) {
+      // remove the tab
+      $quoteStore = $quoteStore.filter(quote => quote.id !== $activeStore); 
+      // if there are no tabs remaining, set active to -1
+      if ($quoteStore.length === 0) $activeStore = -1;
+      // if the just deleted tab was 0, set active to 0
+      else if (activeIndex === 0) $activeStore = $quoteStore[0].id;
+      // if the just deleted tab was not 0, set active to the tab before it
+      else $activeStore = $quoteStore[activeIndex - 1].id;
+    }
   }
 
 </script>
 
 <!-- this is a bit messy, I can probably abstract/clean it up -->
 <div class="body-container">
+  {#if $quoteStore.length === 0}
+    <div class="home-page">
+      <h1>Click the + button to add a new quote</h1>
+    </div>
+  {/if}
   {#if $activeStore === -1}
     <Summary />
   {:else}
