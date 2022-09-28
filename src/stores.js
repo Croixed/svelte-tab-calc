@@ -1,55 +1,117 @@
 import { writable } from "svelte/store";
 
-export const quoteStore = writable([
-  {
-    title: 'Tab 1',
-    id: 1,
+// persist an array of objects to localStorage
+export const quoteStore = writable(
+  JSON.parse(localStorage.getItem("quoteStore")) || [
+    {
+      title: 'Tab 1',
+      id: 1,
+  
+      type: null,
+      material: '',
+  
+      quantity: 0,
+      height: 0,
+      width: 0,
+      depth: 0,
+  
+      desc: '',
+      req: '',
+    },
+    {
+      title: 'Tab 2',
+      id: 2,
+  
+      type: null,
+      material: '',
+  
+      quantity: 0,
+      height: 0,
+      width: 0,
+      depth: 0,
+  
+      desc: '',
+      req: '',
+    },
+    {
+      title: 'Tab 3',
+      id: 3,
+  
+      type: null,
+      material: '',
+  
+      quantity: 0,
+      height: 0,
+      width: 0,
+      depth: 0,
+  
+      desc: '',
+      req: '',
+    },
+  ]
+);
 
-    type: null,
-    material: '',
+quoteStore.subscribe((value) => {
+  localStorage.setItem("quoteStore", JSON.stringify(value));
+});
 
-    quantity: 0,
-    height: 0,
-    width: 0,
-    depth: 0,
 
-    desc: '',
-    req: '',
-  },
-  {
-    title: 'Tab 2',
-    id: 2,
 
-    type: null,
-    material: '',
 
-    quantity: 0,
-    height: 0,
-    width: 0,
-    depth: 0,
-
-    desc: '',
-    req: '',
-  },
-  {
-    title: 'Tab 3',
-    id: 3,
-
-    type: null,
-    material: '',
-
-    quantity: 0,
-    height: 0,
-    width: 0,
-    depth: 0,
-
-    desc: '',
-    req: '',
-  },
-]);
-
-// placeholder, might move active variable to App or Nav?
-export const activeStore = writable(3)
+export const activeStore = writable(JSON.parse(localStorage.getItem("activeStore")) || 3)
+activeStore.subscribe((value) => {localStorage.setItem("activeStore", JSON.stringify(value))})
 
 // placeholder, I'll probably use UUIDv4 to generate unique IDs later
-export const currentIdStore = writable(4)
+export const currentIdStore = writable(JSON.parse(localStorage.getItem("currentIdStore")) || 4)
+currentIdStore.subscribe((value) => {localStorage.setItem("currentIdStore", JSON.stringify(value))})
+
+
+// export const quoteStore = writable([
+//   {
+//     title: 'Tab 1',
+//     id: 1,
+
+//     type: null,
+//     material: '',
+
+//     quantity: 0,
+//     height: 0,
+//     width: 0,
+//     depth: 0,
+
+//     desc: '',
+//     req: '',
+//   },
+//   {
+//     title: 'Tab 2',
+//     id: 2,
+
+//     type: null,
+//     material: '',
+
+//     quantity: 0,
+//     height: 0,
+//     width: 0,
+//     depth: 0,
+
+//     desc: '',
+//     req: '',
+//   },
+//   {
+//     title: 'Tab 3',
+//     id: 3,
+
+//     type: null,
+//     material: '',
+
+//     quantity: 0,
+//     height: 0,
+//     width: 0,
+//     depth: 0,
+
+//     desc: '',
+//     req: '',
+//   },
+// ]);
+
+// placeholder, might move active variable to App or Nav?
