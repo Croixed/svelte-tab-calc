@@ -5,6 +5,7 @@
   import SelectType from "./SelectType.svelte";
   import Summary from "./Summary.svelte";
   import TabTitle from "./TabTitle.svelte";
+  import NoTab from "./NoTab.svelte";
 
   $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
   $: activeQuote = $quoteStore[activeIndex];
@@ -27,11 +28,8 @@
 <!-- this is a bit messy, I can probably abstract/clean it up -->
 <div class="body-container">
   {#if $quoteStore.length === 0}
-    <div class="home-page">
-      <h1>Click the + button to add a new quote</h1>
-    </div>
-  {/if}
-  {#if $activeStore === -1}
+    <NoTab />
+  {:else if $activeStore === -1}
     <Summary />
   {:else}
     <TabTitle />

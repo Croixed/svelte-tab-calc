@@ -5,10 +5,12 @@
   $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
   $: type = $quoteStore[activeIndex].type;
 
+
+
 </script>
 
 <div class="inp-container">
-  <!-- I can probably abstract this into a component and use it multiple times? -->
+  <!-- I can probably abstract this into a component and use it multiple times? also  more #fors -->
   <div class="inp">
     <label for="quantity">Quantity: </label>
     <input type="number" name="quantity" id="quantity" bind:value={$quoteStore[activeIndex].quantity} min="0" max="999" />
@@ -16,31 +18,51 @@
   
   <div class="upload-container">
     <label for="stl" id="stl-label">upload STL</label>
-    <input type="file" name="stl" id="stl">
+    <input type="file" name="stl" id="stl" accept=".stl, .ai, .svg, .dxf">
   </div>
   <form class="material-container" action="">
     <label for="material">Material:</label>
-    <div class="material">
-      <input type="radio" name="material" id="PLA" value="PLA" bind:group={$quoteStore[activeIndex].material} />
-      <label for="PLA">PLA</label>
-    </div>
-    <div class="material">
-      <input type="radio" name="material" id="PETG" value="PETG" bind:group={$quoteStore[activeIndex].material} />
-      <label for="PETG">PETG</label>
-    </div>
-    <div class="material">
-      <input type="radio" name="material" id="ABS" value="ABS" bind:group={$quoteStore[activeIndex].material} />
-      <label for="ABS">ABS</label>
-    </div>
+
+    {#if type === "FDM"}
+      {#each ["PLA", "PETG", "ABS"] as material}
+        <div class="material">
+          <input type="radio" name="material" id={material} value={material} bind:group={$quoteStore[activeIndex].material} />
+          <label for={material}>{material}</label>
+        </div>
+      {/each}
+
+    {:else if type === "Resin"}
+      <div class="material">
+        <input type="text" name="material" id="Resin" bind:value={$quoteStore[activeIndex].material} />
+      </div>
+
+    {:else}
+      <div class="material">
+        <input type="radio" name="material" id="Wood" value="Wood" bind:group={$quoteStore[activeIndex].material} />
+        <label for="PETG">Wood</label>
+      </div>
+      <div class="material">
+        <input type="radio" name="material" id="Acrylic" value="Acrylic" bind:group={$quoteStore[activeIndex].material} />
+        <label for="ABS">Acrylic</label>
+        <!-- ask for acrylic color -->
+        <label for="color">- Color: </label>
+        <input type="text" name="color" id="color">
+      </div>
+    {/if}
+
+
+
   </form>
   
 
   <div class="dimensions">
+    {#if type === !'Laser'}
     <div class="dimension-inp">
       <!-- these could probably also be moved to a child component -->
       <label for="dim-h">height (mm) </label>
       <input type="number" name="dim-h" id="dim-h" bind:value={$quoteStore[activeIndex].height} min="0" max="999" />
     </div>
+    {/if}
   
     <div class="dimension-inp">
       <label for="dim-w">width (mm) </label>
@@ -107,6 +129,15 @@
     font-size: 1.4em;
   }
 
+  input[type=radio] {
+    margin-top: -6px; /* might create custom radio button because this sucks(?) */
+    vertical-align: middle;
+  }
+
+  #color {
+    width: 170px;
+  }
+
   #quantity {
     width: 65px;
   }
@@ -118,6 +149,7 @@
   .material {
     display: inline-block;
     padding: 0 12px;
+    height: 40px;
   }
 
   textarea {

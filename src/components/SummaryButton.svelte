@@ -9,9 +9,17 @@
     $activeStore = -1; // this probably isn't good
   }
 
+
+  let myBool = false;
+  // disable/enable the summary button based on the number of tabs
+  $: if ($quoteStore.length === 0) {
+    myBool = true;
+  } else {
+    myBool = false;
+  }
 </script>
 
-<button on:click={handleSummaryClick}>
+<button disabled={myBool} on:click={handleSummaryClick}>
   Summary Total
 </button>
 
@@ -33,5 +41,11 @@
   button:hover {
     background-color: white;
     color: rgb(var(--primary));
+  }
+
+  button:disabled {
+    background-color: transparent;
+    color: #888;
+    border: #777 3px solid;
   }
 </style>
