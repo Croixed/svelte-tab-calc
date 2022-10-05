@@ -1,9 +1,13 @@
 <script>
   import SummaryButton from "./SummaryButton.svelte";
+  import LogOutButton from "./LogOutButton.svelte";
+
+
 
 </script>
 
 <header>
+  <LogOutButton />
   <SummaryButton />
   <img src="./assets/ACubedLogo.png" alt="A Cubed Design Logo">
   <h1>Tabbed Calc</h1>

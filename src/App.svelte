@@ -4,12 +4,27 @@
   import TabBody from "./components/TabBody.svelte";
   import Footer from "./components/Footer.svelte";
 
+  import Login from "./components/Login.svelte";
+
+  import { loggedInStore } from "./stores.js";
+
+
+  // let loggedIn = false;
+
+  // const handleMessage = (event) => {
+  //   console.log(event.detail, "event detail");
+  //   loggedIn = true;
+  // }
 </script>
 
 <main>
   <Header/>
-  <Nav/>
-  <TabBody/>
+  {#if $loggedInStore}
+    <Nav/>
+    <TabBody/>
+  {:else }
+    <Login />
+  {/if}
   <Footer/>
 </main>
 
