@@ -27,6 +27,7 @@
 
       desc: '',
       req: '',
+      url: '',
     }
     return newQuote;
   }

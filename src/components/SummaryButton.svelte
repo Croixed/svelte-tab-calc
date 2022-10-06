@@ -25,7 +25,6 @@
 
 <style>
   button {
-    position: absolute;
     color: white;
     background-color: transparent;
 
@@ -36,6 +35,9 @@
     padding: 8px;
     z-index: 2;
     transition: background-color 0.5s, color 0.6s;
+
+
+    margin-right: 2rem;
   }
 
   button:hover {

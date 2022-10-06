@@ -1,18 +1,21 @@
 <script>
   import SummaryButton from "./SummaryButton.svelte";
   import LogOutButton from "./LogOutButton.svelte";
-
+  import { loggedInStore } from "../stores.js";
 
 
 </script>
 
 <header>
-  <LogOutButton />
-  <SummaryButton />
   <img src="./assets/ACubedLogo.png" alt="A Cubed Design Logo">
   <h1>Tabbed Calc</h1>
   <div class="accent-block" aria-hidden="true"></div>
   <div class="accent-block-2" aria-hidden="true"></div>
+  
+  <LogOutButton />
+  {#if $loggedInStore}
+    <SummaryButton />
+  {/if}
 </header>
 
 <style>

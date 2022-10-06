@@ -1,7 +1,44 @@
 <script>
+  import { Client, Databases, ID } from "appwrite";
   import { quoteStore } from "../stores";
 
   let total = $quoteStore.reduce((acc, quote) => acc + quote.quantity, 0);
+
+  const client = new Client()
+    .setEndpoint("http://localhost/v1")
+    .setProject("633dd7392c937232f639");
+
+  const databases = new Databases(client);
+
+  const submitHandler = (event) => {
+
+    $quoteStore.forEach((quote) => {
+      console.log(quote.title, quote.type);
+      const promise = databases.createDocument(
+        "633f372e141ff8093ed6",
+        "633f37367e3a34c6ff73",
+        ID.unique(),
+        {
+          title: quote.title,
+          type: quote.type,
+          material: quote.material,
+          quantity: quote.quantity,
+          height: quote.height,
+          width: quote.width,
+          depth: quote.depth,
+          description: quote.desc,
+          requirements: quote.req,
+          url: quote.url,
+        }
+      );
+
+      promise.then((response) => {
+        console.log(response, "uploaded one item");
+      }, (error) => {
+        console.log(error);
+      });
+    });
+  };
 
 </script>
 
@@ -31,7 +68,7 @@
   <p class="total">Total: {Math.round(total * 100) / 100} models</p>
   <label for="email">Enter email to submit: </label>
   <input type="email" name="email" id="email">
-  <button>Submit</button>
+  <button on:click={submitHandler}>Submit</button>
 </div>
 
 <style>

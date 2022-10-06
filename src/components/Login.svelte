@@ -74,7 +74,7 @@
     <div class="misc-controls">
       <input type="checkbox" id="remember" name="remember" />
       <label for="remember">Remember me</label>
-      <a href="#">Forgot password?</a>
+      <a href="./">Forgot password?</a>
     </div>
 
     <button type="submit" on:click={login}>Log in</button>
@@ -142,6 +142,10 @@
     border-radius: 4px;
 
     width: 280px;
+
+    background-color: var(--my-gray);
+    color: white;
+    font-size: 1em;
   }
 
   input[type="checkbox"] {
@@ -152,7 +156,8 @@
   }
 
   button {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 2rem;
+    font-size: 1em;
     border: none;
     border-radius: 4px;
     background-color: #333;
@@ -162,9 +167,9 @@
   } 
 
   .misc-controls {
-    width: 100%;
+    width: 95%;
     display: flex;
-    
+    margin-bottom: 16px;
   }
 
   a {
@@ -181,10 +186,13 @@
   }
 
   .auth-container button {
-    width: 220px;
+    width: 250px;
+    background-color: #0d6efd;
   }
 
-
+  button[type="submit"] {
+    background-color: #198754;
+  }
 
   .new-user-container {
     border: 3px solid white;

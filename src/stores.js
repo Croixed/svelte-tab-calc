@@ -17,6 +17,7 @@ export const quoteStore = writable(
   
       desc: '',
       req: '',
+      url: '',
     },
     {
       title: 'Tab 2',
@@ -32,6 +33,7 @@ export const quoteStore = writable(
   
       desc: '',
       req: '',
+      url: '',
     },
     {
       title: 'Tab 3',
@@ -47,6 +49,7 @@ export const quoteStore = writable(
   
       desc: '',
       req: '',
+      url: '',
     },
   ]
 );

@@ -53,10 +53,9 @@
 
 
   </form>
-  
 
   <div class="dimensions">
-    {#if type === !'Laser'}
+    {#if type === 'FDM' || type === 'Resin'}
     <div class="dimension-inp">
       <!-- these could probably also be moved to a child component -->
       <label for="dim-h">height (mm) </label>
