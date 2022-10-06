@@ -7,19 +7,19 @@
   import TabTitle from "./TabTitle.svelte";
   import NoTab from "./NoTab.svelte";
 
-  $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+  $: activeIndex = $quoteStore.findIndex(quote => quote.$id === $activeStore);
   $: activeQuote = $quoteStore[activeIndex];
 
   const handleDelete = () => {
     if (confirm("Are you sure you want to delete this tab?")) {
       // remove the tab
-      $quoteStore = $quoteStore.filter(quote => quote.id !== $activeStore); 
+      $quoteStore = $quoteStore.filter(quote => quote.$id !== $activeStore); 
       // if there are no tabs remaining, set active to -1
       if ($quoteStore.length === 0) $activeStore = -1;
       // if the just deleted tab was 0, set active to 0
-      else if (activeIndex === 0) $activeStore = $quoteStore[0].id;
+      else if (activeIndex === 0) $activeStore = $quoteStore[0].$id;
       // if the just deleted tab was not 0, set active to the tab before it
-      else $activeStore = $quoteStore[activeIndex - 1].id;
+      else $activeStore = $quoteStore[activeIndex - 1].$id;
     }
   }
 

@@ -1,7 +1,7 @@
 <script>
-  import { Account, Client, ID } from "appwrite";
+  import { Account, Client, ID, Databases } from "appwrite";
   import { createEventDispatcher } from "svelte";
-  import { loggedInStore } from "../stores.js";
+  import { loggedInStore, quoteStore } from "../stores.js";
   let newUser = false;
 
   let newUsername = '';
@@ -11,6 +11,7 @@
     .setEndpoint("http://localhost/v1")
     .setProject("633dd7392c937232f639");
   const account = new Account(client);
+  const databases = new Databases(client);
 
   const createNewUser = () => {
     const promise = account.create(ID.unique(), newUsername, newPassword);
@@ -36,10 +37,22 @@
       $loggedInStore = true;
       username = '';
       password = '';
+      refreshDocs();
     }, (error) => {
       console.log(error);
     });
   }
+
+  const refreshDocs = () => {
+    const promise = databases.listDocuments("633f372e141ff8093ed6", "633f37367e3a34c6ff73");
+
+    promise.then((response) => {
+      console.log(response.documents, "list of docs");
+      $quoteStore = response.documents;
+    }, (error) => {
+      console.log(error);
+    });
+  };
 
 
   const checkIfauthenticated = () => {

@@ -2,10 +2,10 @@
   export let quote;
   import { activeStore } from "../stores";
 
-  const handleTabClick = () => $activeStore = quote.id;
+  const handleTabClick = () => $activeStore = quote.$id;
 </script>
 
-<button on:click={handleTabClick} class:active={$activeStore === quote.id}>
+<button on:click={handleTabClick} class:active={$activeStore === quote.$id}>
   {quote.title}
 </button>
 

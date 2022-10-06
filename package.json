@@ -14,6 +14,7 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
-    "appwrite": "^10.1.0"
+    "appwrite": "^10.1.0",
+    "uuid": "^9.0.0"
   }
 }

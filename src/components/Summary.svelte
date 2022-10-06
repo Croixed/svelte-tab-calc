@@ -26,8 +26,8 @@
           height: quote.height,
           width: quote.width,
           depth: quote.depth,
-          description: quote.desc,
-          requirements: quote.req,
+          description: quote.description,
+          requirements: quote.requirements,
           url: quote.url,
         }
       );
@@ -40,10 +40,24 @@
     });
   };
 
+  const listDocs = () => {
+    const promise = databases.listDocuments("633f372e141ff8093ed6", "633f37367e3a34c6ff73");
+
+    promise.then((response) => {
+      console.log(response.documents, "list of docs");
+      $quoteStore = response.documents;
+    }, (error) => {
+      console.log(error);
+    });
+  };
+
+  // listDocs();
+
 </script>
 
 
 <div class="summary">
+  <button class="reset-docs" on:click={listDocs}>query DB for data reset</button>
   <table>
     <thead>
       <tr>

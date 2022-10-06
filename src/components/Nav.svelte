@@ -1,4 +1,6 @@
 <script>
+  import { ID } from "appwrite";
+  import { v4 as uuidv4 } from "uuid";
   import { quoteStore } from "../stores";
   import { currentIdStore } from "../stores";
   import { activeStore } from "../stores";
@@ -8,14 +10,14 @@
     quoteStore.update((current) => {
       return [...current, quoteFactory()]
     })
-    activeStore.set($quoteStore.at(-1).id)
+    activeStore.set($quoteStore.at(-1).$id)
   }
 
   // I feel like this should be in a seperate file like storesLogic.js?
   const quoteFactory = () => {
     const newQuote = {
       title: `Tab ${$currentIdStore}`,
-      id: $currentIdStore++,
+      $id: uuidv4(),
 
       type: null,
       material: '',
@@ -25,8 +27,8 @@
       width: 0,
       depth: 0,
 
-      desc: '',
-      req: '',
+      description: '',
+      requirements: '',
       url: '',
     }
     return newQuote;
@@ -36,7 +38,7 @@
 </script>
 
 <nav>
-  {#each $quoteStore as quote (quote.id)}
+  {#each $quoteStore as quote (quote.$id)}
     <Tab {quote} />
   {/each}
   <button on:click={handleNewTabClick}>+</button>

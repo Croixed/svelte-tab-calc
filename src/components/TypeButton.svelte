@@ -6,7 +6,7 @@
 
   const handleTypeClick = () => {
     // there has to be a better way to do this
-    let activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+    let activeIndex = $quoteStore.findIndex(quote => quote.$id === $activeStore);
     $quoteStore[activeIndex].type = type.name;
   };
 </script>

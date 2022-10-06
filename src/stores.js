@@ -5,7 +5,7 @@ export const quoteStore = writable(
   JSON.parse(localStorage.getItem("quoteStore")) || [
     {
       title: 'Tab 1',
-      id: 1,
+      $id: 1,
   
       type: null,
       material: '',
@@ -15,13 +15,13 @@ export const quoteStore = writable(
       width: 0,
       depth: 0,
   
-      desc: '',
-      req: '',
+      description: '',
+      requirements: '',
       url: '',
     },
     {
       title: 'Tab 2',
-      id: 2,
+      $id: 2,
   
       type: null,
       material: '',
@@ -31,13 +31,13 @@ export const quoteStore = writable(
       width: 0,
       depth: 0,
   
-      desc: '',
-      req: '',
+      description: '',
+      requirements: '',
       url: '',
     },
     {
       title: 'Tab 3',
-      id: 3,
+      $id: 3,
   
       type: null,
       material: '',
@@ -47,8 +47,8 @@ export const quoteStore = writable(
       width: 0,
       depth: 0,
   
-      desc: '',
-      req: '',
+      description: '',
+      requirements: '',
       url: '',
     },
   ]

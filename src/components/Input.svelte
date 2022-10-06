@@ -2,7 +2,7 @@
   import { quoteStore } from "../stores";
   import { activeStore } from "../stores";
 
-  $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+  $: activeIndex = $quoteStore.findIndex(quote => quote.$id === $activeStore);
   $: type = $quoteStore[activeIndex].type;
 
 

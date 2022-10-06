@@ -2,7 +2,7 @@
   import { quoteStore } from "../stores";
   import { activeStore } from "../stores";
 
-  $: activeIndex = $quoteStore.findIndex(quote => quote.id === $activeStore);
+  $: activeIndex = $quoteStore.findIndex(quote => quote.$id === $activeStore);
   $: bodyTitle = $activeStore != -1 ? $quoteStore[activeIndex].title : "Summary";
   // "summary" never displays because I'm not using it in the markup when the summary comp loads
   let editing = false;
