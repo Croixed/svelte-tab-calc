@@ -2,6 +2,7 @@
   import { Account, Client, ID, Databases } from "appwrite";
   import { createEventDispatcher } from "svelte";
   import { loggedInStore, quoteStore } from "../stores.js";
+  import { activeStore } from "../stores.js";
   let newUser = false;
 
   let newUsername = '';
@@ -21,6 +22,7 @@
       alert(`User ${newUsername} created!`);
       newUsername = '';
       newPassword = '';
+      
     }, (error) => {
       console.log(error);
     });
@@ -28,6 +30,7 @@
 
   let username;
   let password;
+  let confirmPassword
 
   const login = () => {
     const promise = account.createEmailSession(username, password);
@@ -37,6 +40,8 @@
       $loggedInStore = true;
       username = '';
       password = '';
+      confirmPassword = '';
+      $activeStore = -1; // force new logins to go to -1 (summary), I'll change this later
       refreshDocs();
     }, (error) => {
       console.log(error);
@@ -109,7 +114,7 @@
       <h1>Sign up</h1>
       <input type="text" id="username" name="username" placeholder="Username" bind:value={newUsername} />
       <input type="password" id="password" name="password" placeholder="Password" bind:value={newPassword}/>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" />
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" bind:value={confirmPassword}/>
       <button type="submit" on:click={createNewUser}>Sign up</button>
       <p>Already have an account?</p>
       <button on:click={() => newUser = false}>Log in</button>
