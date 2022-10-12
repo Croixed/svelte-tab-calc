@@ -1,6 +1,7 @@
 <script>
   import { Client, Databases, ID } from "appwrite";
   import { quoteStore } from "../stores";
+  import { v4 as uuidv4 } from "uuid";
 
   let total = $quoteStore.reduce((acc, quote) => acc + quote.quantity, 0);
 
@@ -12,6 +13,8 @@
 
   const submitHandler = (event) => {
 
+    const orderId = uuidv4();
+
     $quoteStore.forEach((quote) => {
       console.log(quote.title, quote.type);
       const promise = databases.createDocument(
@@ -19,6 +22,7 @@
         "633f37367e3a34c6ff73",
         ID.unique(),
         {
+          orderId: orderId,
           title: quote.title,
           type: quote.type,
           material: quote.material,
@@ -53,6 +57,21 @@
 
   // listDocs();
 
+  const deleteAllHandler = () => {
+    $quoteStore.forEach((quote) => {
+      const promise = databases.deleteDocument("633f372e141ff8093ed6", "633f37367e3a34c6ff73", quote.$id);
+
+      promise.then((response) => {
+        console.log(response, "deleted one item");
+      }, (error) => {
+        console.log(error);
+      });
+    });
+
+    $quoteStore = [];
+  };
+  
+
 </script>
 
 
@@ -80,8 +99,7 @@
     {/each}
   </table>
   <p class="total">Total: {Math.round(total * 100) / 100} models</p>
-  <label for="email">Enter email to submit: </label>
-  <input type="email" name="email" id="email">
+  <button class="delete" on:click={deleteAllHandler}>clear user DB</button>
   <button on:click={submitHandler}>Submit</button>
 </div>
 
@@ -126,6 +144,7 @@
 
   table {
     border-collapse: collapse;
+    margin: 18px;
   }
 
   td {
@@ -150,11 +169,10 @@
     color: white;
   }
 
-  input {
-    color: white;
-    background-color: var(--my-gray);
-    border: none;
-    font-size: 20px;
-    border-radius: 8px;
+  .delete {
+    background-color: rgb(240, 45, 45);
+    font-size: 22px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 </style>

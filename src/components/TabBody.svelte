@@ -6,6 +6,7 @@
   import Summary from "./Summary.svelte";
   import TabTitle from "./TabTitle.svelte";
   import NoTab from "./NoTab.svelte";
+  import OrdersView from "./OrdersView.svelte";
 
   $: activeIndex = $quoteStore.findIndex(quote => quote.$id === $activeStore);
   $: activeQuote = $quoteStore[activeIndex];
@@ -31,6 +32,8 @@
     <NoTab />
   {:else if $activeStore === -1}
     <Summary />
+  {:else if $activeStore === -2}
+    <OrdersView />
   {:else}
     <TabTitle />
     <button id="delete" on:click={handleDelete}>delete</button>

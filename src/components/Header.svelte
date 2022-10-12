@@ -2,6 +2,7 @@
   import SummaryButton from "./SummaryButton.svelte";
   import LogOutButton from "./LogOutButton.svelte";
   import { loggedInStore } from "../stores.js";
+  import OrdersButton from "./OrdersButton.svelte";
 
 
 </script>
@@ -15,7 +16,9 @@
   <LogOutButton />
   {#if $loggedInStore}
     <SummaryButton />
+    <OrdersButton />
   {/if}
+
 </header>
 
 <style>
