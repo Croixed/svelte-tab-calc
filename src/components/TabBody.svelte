@@ -28,7 +28,8 @@
 
 <!-- this is a bit messy, I can probably abstract/clean it up -->
 <div class="body-container">
-  {#if $quoteStore.length === 0}
+  <!-- && is checking if (last tab deleted) vs (order submitted and set to -2) -->
+  {#if $quoteStore.length === 0 && $activeStore !== -2}
     <NoTab />
   {:else if $activeStore === -1}
     <Summary />

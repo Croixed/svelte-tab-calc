@@ -1,6 +1,7 @@
 <script>
   import { Client, Databases, ID } from "appwrite";
   import { quoteStore } from "../stores";
+  import { activeStore } from "../stores";
   import { v4 as uuidv4 } from "uuid";
 
   let total = $quoteStore.reduce((acc, quote) => acc + quote.quantity, 0);
@@ -42,6 +43,14 @@
         console.log(error);
       });
     });
+
+    // clear the store
+    quoteStore.set([]);
+
+    // redirect to the orders page
+    $activeStore = -2;
+
+    alert("Your order has been submitted!");
   };
 
   const listDocs = () => {

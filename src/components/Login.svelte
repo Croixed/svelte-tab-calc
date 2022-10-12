@@ -1,6 +1,5 @@
 <script>
   import { Account, Client, ID, Databases } from "appwrite";
-  import { createEventDispatcher } from "svelte";
   import { loggedInStore, quoteStore } from "../stores.js";
   import { activeStore } from "../stores.js";
   let newUser = false;
@@ -42,7 +41,7 @@
       password = '';
       confirmPassword = '';
       $activeStore = -1; // force new logins to go to -1 (summary), I'll change this later
-      refreshDocs();
+      // refreshDocs();
     }, (error) => {
       console.log(error);
     });
@@ -59,12 +58,11 @@
     });
   };
 
-
   const checkIfauthenticated = () => {
     const promise = account.get();
 
     promise.then((response) => {
-      console.log(response, "logged in");
+      console.log(response.email, "logged in (check)");
       $loggedInStore = true;
     }, (error) => {
       console.log(error);
@@ -121,6 +119,7 @@
     </div>
 
   {/if}
+
 </div>
 
 <style>
